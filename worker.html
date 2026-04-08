@@ -1,0 +1,15 @@
+<h2>👷 Electrician Jobs</h2>
+
+{% for row in data %}
+  <p>
+    {{row[1]}} | {{row[2]}} | {{row[3]}}
+
+    {% if row[3] == 'Pending' %}
+      <a href="/accept/{{row[0]}}">Accept</a>
+    {% elif row[3] == 'Accepted' %}
+      <a href="/complete/{{row[0]}}">Complete</a>
+    {% else %}
+      ✅ Done
+    {% endif %}
+  </p>
+{% endfor %}
